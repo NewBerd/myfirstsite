@@ -402,7 +402,7 @@ MyDjangoProject
 │  │  __init__.py
 │  │
 │  └─__pycache__
-2 KG
+2 MyKG
 没有使用
 3 static
 static
