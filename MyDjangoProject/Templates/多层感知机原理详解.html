@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/feffery/p/8996623.html -->
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>多层感知机原理详解</title>
+</head>
+
+
+<body>
+	<h2>多层感知机原理详解</h2>
+	<div id="cnblogs_post_body" class="blogpost-body">
+    <p><span style="font-size: 18pt;">一、简介</span></p>
+    <p><span style="font-size: 14pt;">　　机器学习分为很多个领域，其中的连接主义指的就是以神经元（neuron）为基本结构的各式各样的神经网络，规范的定义是：由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界的刺激作出的交互反应。而我们在机器学习中广泛提及的神经网络学习就是机器学习与神经网络的交叉部分。</span></p>
+    <p>&nbsp;</p>
+    <p><span style="font-size: 18pt;">二、从神经元模型到多层前馈网络</span></p>
+    <p><span style="font-size: 14pt;">2.1 知识铺垫</span></p>
+    <p><span style="font-size: 14pt;">　　在介绍神经网络学习中的神经元模型之前我们先类比一下生物神经元，神经元是基本的信息处理单元，生物神经元主要由树突、轴突和突触组成，结构简图如下：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506113004354-1567433739.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">通过观察它的<strong>结构</strong>可以总结出以下特点：</span></p>
+    <p><span style="font-size: 14pt;">　　1、树突由细胞体向外伸出，且有不规则的表面和许多较短的分支，它的角色是信号的输入端，用于<strong>接收</strong>神经冲动；</span></p>
+    <p><span style="font-size: 14pt;">　　2、轴突指由细胞体向外伸出的最长的一条分支，即神经纤维，相当于信号的输出端，用于<strong>传出</strong>神经冲动；</span></p>
+    <p><span style="font-size: 14pt;">　　3、神经元之间通过轴突（输出）+树突（输入）的形式进行互连，且对于单个神经元，在输入——&gt;输出这个方向上不可逆；</span></p>
+    <p><span style="font-size: 14pt;">而关于神经元的<strong>功能</strong>，也总结出以下几点：</span></p>
+    <p><span style="font-size: 14pt;">　　1、可塑性：神经元存在着这样一种机制：通过新突触的产生和对现有神经突触的调整，使得神经网络能够适应环境（正如当下人们对记忆是存在与神经元间的连接之中的假设）；</span></p>
+    <p><span style="font-size: 14pt;">　　2、时空整合：传入某一个中间神经元的刺激，是来自前面所有相关神经元的反复调整过的累积结果；</span></p>
+    <p><span style="font-size: 14pt;">　　3、兴奋与抑制状态：当传入冲动的累计刺激结果使得细胞膜电位上升并成功超过了阈值，则细胞会进入兴奋状态，产生一次传出刺激上的阶跃；若传入的累计刺激结果低于发生阶跃的阈值，则无后续神经活动产生，细胞随之进入抑制状态；</span></p>
+    <p><span style="font-size: 14pt;">　　4、突触的延时和不应期：突触对神经活动的传递具有延时和不应期性，在相邻两次冲动之间存在时间间隔，且在时间间隔内神经元处于休息状态，不会产生自发性的神经冲动；</span></p>
+    <p><span style="font-size: 14pt;">　　5、学习、遗忘和疲劳：突触的传递作用有学习、遗忘和疲劳过程</span></p>
+    <p><span style="font-size: 14pt;">通过以上说明，我们可以惊喜的发现生物神经元的这些结构特性使得它与我们在机器学习中希望达到的目的完美契合——即通过一系列规则的的刺激传递过程，最终达到正确的决策结果输出，早在上个世纪四五十年代，人们就发现了这种奇妙的联系，并随之构造出基本的神经元模型；</span></p>
+    <p><span style="font-size: 14pt;">2.2 神经元模型</span></p>
+    <p><span style="font-size: 14pt;">2.2.1 基本结构</span></p>
+    <p><span style="font-size: 14pt;">　　一个典型的M-P人工神经元模型结构如下：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506115221964-706278801.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">其中x<sub>j</sub>表示来自第j条“树突”的输入值，w<sub>ji</sub>表示连接权（每条固定的输入上只有一个唯一的权），u<sub>i</sub>表示在该神经元i上，所有输入信号的线性组合，系数即为对应的权值，即</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506115759574-1741102562.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">θ<sub>i</sub>为该神经元i的阈值，通过u<sub>i</sub>与θ<sub>i</sub>的简单相加，即可得到中间值v<sub>i</sub>：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506120127501-1511095651.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">而f()表示激活函数，y<sub>i</sub>表示该神经元i的输出，即：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506120148259-1417578443.png" alt=""></span></p>
+    <p>&nbsp;</p>
+    <p><span style="font-size: 14pt;">2.2.2 激活函数</span></p>
+    <p><span style="font-size: 14pt;">　　理想的激活函数是阶跃函数，如下图，它将连续域上的输入值映射为{0,1}，1对应神经元兴奋</span>&nbsp;<span style="font-size: 14pt;">，0对应神经元抑制；</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506135607686-2099406735.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">　　事实上，类似逻辑回归中的logit函数，我们需要用一些数学性质良好的函数来替代数学性质较差（不处处连续）的阶跃函数，常用的是sigmoid型函数，如下：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506135904614-1978577361.png" alt=""></span></p>
+    <p>&nbsp;</p>
+    <p style="text-align: left;"><span style="font-size: 14pt;">2.3 感知机与多层网络</span></p>
+    <p style="text-align: left;"><span style="font-size: 14pt;">2.3.1 单层感知机</span></p>
+    <p style="text-align: left;"><span style="font-size: 14pt;">　　</span>&nbsp;<span style="font-size: 14pt;">感知机（perceptron）由两层神经元组成，如下图所示，输入层接受外界输入信号后传递给输出层，输出层是M-P神经元，亦称作“阈值逻辑单元”（threshold logic unit）；</span></p>
+    <p style="text-align: center;">&nbsp;<img src="/static/多层感知机原理详解_files/1344061-20180506142622799-52134487.png" alt=""></p>
+    <p><span style="font-size: 14pt;">感知机的学习过程就是对于给定的训练集，在每一轮迭代中同时调整各权重w<sub>i</sub>(i=1,2,...,n)，以及阈值θ，直到满足预设精度为止，为了方便训练，阈值θ可看作第n+1个输入为1的结点的对应权重w<sub>n+1</sub>，亦称为哑结点（dummy node），这样权重和阈值的学习变得到了统一，例如下图这种表示形式，阈值θ就被视为一个特别的输入：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506143107715-1509815281.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">而单个感知机的学习规则也十分简单，对训练数据集（<strong>x</strong>,y），若当前感知机的输出为y*，则感知机各权重调整规则如下：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506141941680-222033696.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">只有在y*=y或训练轮数达到预设的上限或精度第一次达到或超过设定的阈值时，该学习过程才会停止，否则都将进行一轮又一轮的权重调整；</span></p>
+    <p><span style="font-size: 14pt;">　　在整个感知机的结构中，只有输出层神经元包含激活函数的计算过程，输入层只管输入值*权重，即只拥有一层功能神经元（functional neuron），学习能力非常有限，只能处理线性可分问题，否则感知机的学习过程将会发生震荡，w难以稳定下来，即学习失效，例如对于常见的异或问题，感知机就无法习得其规则：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506142523100-1170537114.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">也正是这个原因，对于感知机学习的热度在上世纪60年代跌入谷底，但随着研究的深入，很多用于改造感知机的方法被提出，下面举几个例子：</span></p>
+    <p><span style="font-size: 14pt;">　　1、对神经元施加非线性输入函数</span></p>
+    <p><span style="font-size: 14pt;">　　类似部分非线性回归中我们常使用的线性化方法，对于单纯线性输入的感知机输入层，我们可以根据对具体问题的理解，在个别输入神经元上进行非线性改造，如下例：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506144915295-1356542078.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">　　2、使用AND逻辑器构成割平面式的非线性化</span></p>
+    <p><span style="font-size: 14pt;">　　普通感知机的分割平面是线性的，我们思考一下，有哪种机器学习算法本质也是线性分割呢？没错，如果你看过我之前关于决策树的博文，一定还记得，决策树的分割平面式由很多段与各坐标轴平行的拼接而成的，那么我们可以将这种思想类似地迁移到感知机的改造中，用多条线性分割来围成近似的非线性分割：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506145331652-648310401.png" alt=""></span></p>
+    <p>&nbsp;</p>
+    <p><span style="font-size: 14pt;">2.3.2 多层感知机与神经网络</span></p>
+    <p><span style="font-size: 14pt;">　　之前介绍的几种改造线性感知机的方法，实际实施起来存在着很多局限，比如施加输入层非线性函数就存在着很多不确定的部分，要想更加通用地解决非线性可分问题，需要考虑使用多层功能神经元，例如下图所示的这个简单的两层感知机就可以解决异或问题，其中输入层与输出层间的若干层神经元被称为隐层或隐含层（hidden layer），隐层和输出层都是含有激活函数部分的功能神经元：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506145907142-1890576603.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">　　而更一般的多层感知机，如下图所示具有规则的层级结构，这时它已经可以称作是神经网络了，每层神经元与下一层神经元全互连，且同层神经元之间不存在连接，也不存在跨层连接，这样的神经网络结构通常被乘称作“多层前馈神经网络”（multi-layer feedforward neural networks），其中输入层神经元依旧单纯地接收外界输入，隐层与输出层对信号进行处理，最终结果依旧是由输出层神经元处理并输出，所以我们平时对一个多层前馈神经网络的层数的称呼都来源于其隐含层的层数，例如下图a就是单隐含层前馈网络，b就是双隐含层前馈网络：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506150033153-929620142.png" alt=""></span></p>
+    <p>&nbsp;</p>
+    <p><span style="font-size: 14pt;">2.3.3 训练方法</span></p>
+    <p><span style="font-size: 14pt;">　　多层感知机的学习能力比单个感知机强得多，但随着其结构的复杂化，对应的训练方法也不同于前面简单感知机的简单规则，最常使用的方法是误差逆传播（error BackPropgation，即常用的BP算法）；</span></p>
+    <p><span style="font-size: 14pt;"><strong>算法过程：</strong><br></span></p>
+    <p><span style="font-size: 14pt;"><strong>　　</strong>对一个给定的训练集D={(x<sub>1</sub>,y<sub>1</sub>),(x<sub>2</sub>,y<sub>2</sub>)...(x<sub>m</sub>,y<sub>m</sub>)}，其中x<sub>i</sub>为d维向量，y<sub>i</sub>为l维向量，即自变量由d个维度组成，输出值为l个维度，对应的，构造一个由d个输入层神经元、q个隐含层神经元（隐含层神经元个数没有硬性要求）以及l个输出层神经元组成的单隐层前馈神经网络，其中输出层第j个神经元的阈值用θ<sub>j</sub>表示，隐层第h个神经元的阈值用γ<sub>h</sub>表示，输入层第i个神经元与隐层第h个神经元之间的连接权为v<sub>ih</sub>，隐层第h个神经元与输出层第j个神经元之间的连接权为w<sub>hj</sub>，记隐层第h个神经元接收到的输入为</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506215748184-1781405438.png" alt=""></span></p>
+    <p><span style="font-size: 18.6667px;">输出层第j个神经元接收到的输入为</span></p>
+    <p style="text-align: center;"><span style="font-size: 18.6667px;"><img src="/static/多层感知机原理详解_files/1344061-20180506215949175-1649995757.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">结构如下图：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506221507915-981441027.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">且假设隐层和输出层每个功能神经元都使用Sigmoid型函数：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506220220946-1006147465.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">对于训练集中的任意(x<sub>k</sub>,y<sub>k</sub>)，假定神经网络的输出为</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506220940468-1322018533.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">即</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506221155312-308958368.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">则该网络在(x<sub>k</sub>,y<sub>k</sub>)上的均方误差为：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506221355005-1344929971.png" alt=""></span></p>
+    <p>&nbsp;<span style="font-size: 14pt;">而整个网络中需要确定的参数共有</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506221817321-834760486.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">需要确定，而BP是一种迭代学习算法，在迭代的每一轮采用广义的感知机学习规则对参数进行更新估计，即其任意参数v的更新估计式为：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506222031796-253516384.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">　　以隐层到输出层的连接权w<sub>hj</sub>为例来进行推导：</span></p>
+    <p><span style="font-size: 14pt;">　　首先我们先确定一个事实，BP算法基于梯度下降（gradient descent）策略，以目标的负梯度方向对参数进行调整，所以对均方误差项</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506221355005-1344929971.png" alt=""></span></p>
+    <p style="text-align: left;">&nbsp;<span style="font-size: 14pt;">给定学习率<em>η</em><em>，</em>有</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506222612631-42874131.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">注意到w<sub>hj</sub>先影响到第j个输出层神经元的输入值<em>β<sub>j</sub></em><sub>，</sub>再影响其输出值，最后影响到<em>E<sub>k</sub>，</em>有</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506223132709-2146734601.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">又因为</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506223354991-1542257129.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">且Sigmoid型函数有一个很好的性质：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506223506649-970551535.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">于是综上，有</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506224131055-1333645892.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">所有最终得到w<sub>hj</sub>的更新公式：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506224247085-772627268.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">类似的，其他参数的更新公式：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506224439916-2022391843.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">其中e<sub>h</sub>为：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506224925007-2087136473.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">学习率<em>η</em>控制着算法每一轮迭代中的更新步长，太大容易震荡（接近理想解时却跨过），太小则收敛速度又会过慢，有时为了做精细调节，可以更加灵活的设置学习率而不必一直固定不变；需要注意的是，标准BP算法在随机初始化各参数（一般是初始化一个较小的非0阵）后，经过一轮一轮地迭代，每一轮都只输入一个样本值来调整各参数，训练目的是逐渐缩小训练集D上的累积误差：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180506230405317-28855176.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">而上面推导的规则是基于每次一个样本输入的调整，即标准BP算法，特点是参数更新的非常频繁，并且前后的不同样本可能会导致训练效果的前后抵消，所以为了达到目标累积误差极小点，需要进行很多次的迭代，但优点是下降和计算都较快，特别是当训练集D非常大时，因此其被使用的最多；</span></p>
+    <p><span style="font-size: 14pt;"><strong>一个重要的论点：</strong><br></span></p>
+    <p><span style="font-size: 14pt;"><strong>　　</strong>只要一个隐层包含足够多神经元，多层前馈网络就可以以任意精度逼近任意复杂度的连续函数。但是在实际任务多层前馈网络的构造中，选择单隐层 还是双隐层，每一层隐层选取几个神经元，这都尚无可靠的理论支撑，存在着大量试错（trial-by-error）的成分，对神经网络最佳超参数的搜索方法的研究也是一个相当活跃的领域；</span></p>
+    <p><span style="font-size: 14pt;">　　也正是因为其强大的表示能力，多层前馈网络很容易过拟合，即其训练集上误差持续下降，而验证集上误差却可能上升，目前主要有两种缓解多层前馈网络过拟合的方法：</span></p>
+    <p><span style="font-size: 14pt;">　　1、早停（early stopping）</span></p>
+    <p><span style="font-size: 14pt;">　　通过将数据集分成训练集和验证集，训练集用来计算梯度、更新连接权和阈值，验证集用来估计误差，若训练集误差降低但验证集上误差升高，则停止训练，同时返回具有当前最小验证集误差的连接权与阈值（基于贪心算法的原则）</span></p>
+    <p><span style="font-size: 14pt;">　　2、正则化（regularization）</span></p>
+    <p><span style="font-size: 14pt;">　　正则化是指在误差目标函数中增加一个用于描述网络复杂度的部分，常用的是连接权与阈值的平方和，令<em>E<sub>k</sub></em>表示第k个训练样本上的误差，w<sub>i</sub>表示连接权和阈值，则误差目标函数变为：</span></p>
+    <p style="text-align: center;"><span style="font-size: 14pt;"><img src="/static/多层感知机原理详解_files/1344061-20180507090634774-283936583.png" alt=""></span></p>
+    <p><span style="font-size: 14pt;">其中λ属于(0,1)，表示在经验误差和网络复杂度之间进行权衡，具体取值常通过交叉验证来进行搜索确定；</span></p>
+    <p><span style="font-size: 14pt;">　　3、惩罚项</span></p>
+    <p><span style="font-size: 14pt;">　　对目标函数附加惩罚项以强制无用的权值趋于0</span></p>
+    <p><strong><span style="font-size: 14pt;">局部极小情况：</span></strong></p>
+    <p><strong><span style="font-size: 14pt;">　　</span></strong><span style="font-size: 14pt;">由于不能保证目标函数在权空间中的正定性，而误差曲面往往复杂且无规则，存在着多个分布无规则的局部极小点，因此基于梯度下降的BP算法很容易陷入局部极小，导致训练效果不好，而常用的改进措施有：</span></p>
+    <p><span style="font-size: 14pt;">　　1、引入全局优化技术</span></p>
+    <p><span style="font-size: 14pt;">　　包括同时训练多个神经网络模型，然后按照在验证集上的表现，选择其中验证误差最小的作为全局最小的近似值；使用诸如随机梯度下降、模拟退火、遗传算法、蚁群算法等启发式的算法来寻找最大可能接近全局最小值的局部最小值；</span></p>
+    <p><span style="font-size: 14pt;">　　2、平坦化优化曲面以消除局部极小</span></p>
+    <p><span style="font-size: 14pt;">　　3、设计合适的网络结构使得其不会产生局部极小</span></p>
+    <p><span style="font-size: 14pt;">当然，后面两种方案实施起来比较复杂，因此实际任务中常使用的第一种策略。</span></p>
+    <p><br><br></p>
+    <p></p>
+
+</body>
+</html>

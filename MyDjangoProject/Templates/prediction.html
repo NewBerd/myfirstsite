@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="/static/js/echarts.min.js"></script>
+    <style type="text/css">
+        img {
+            padding:0;
+            margin:0;
+            transform: scale(10);/*放缩*/
+        }
+    </style>
+</head>
+<body>
+    <!-- <p>url:{{ picture }}</p> -->
+    <div id="uploadshow" style="margin: 10px 200px 200px 300px"> <!-- 从上边距开始按顺时针 -->
+        <p style="font-size: 18pt">你上传的图片：</p><br/><br/><br/><br/><br/><br/><br/><br/>
+        <img src="/{{ picture }}" alt="你上传的图片"/>
+    </div>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;">
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '模型预测结果概率分布'
+            },
+            tooltip: {},
+            legend: {
+                data:['概率']
+            },
+            xAxis: {
+                data: ["0","1","2","3","4","5","6","7","8","9"]
+            },
+            yAxis: {},
+            series: [{
+                name: '概率',
+                type: 'bar',
+                data: [
+                    {{ zero }},
+                    {{ one }},
+                    {{ two }},
+                    {{ three }},
+                    {{ four }},
+                    {{ five }},
+                    {{ six }},
+                    {{ seven }},
+                    {{ eight }},
+                    {{ nine }}
+                ]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    </div>
+    <p style="font-size: 150%">
+        根据我们的模型预测结果，我们认为你刚才上传的数字是 <strong style="color: red">{{ pre }}</strong>
+    </p>
+</body>
+</html>

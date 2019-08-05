@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>predict</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <p>如果你要生成欺骗图片，你应该上传大小为299×299像素的RGB图，这可能要花费十来个小时，请耐心等待。</p>
+
+    <form enctype="multipart/form-data" action="../genpicture/" method="post">
+        {% csrf_token %}
+       <input type="file" name="myfile" />
+       <br/>
+       <br/>
+       <input type="submit" value="开始生成"/>
+    </form>
+</body>
+</html>

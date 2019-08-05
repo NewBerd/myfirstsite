@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/sandy-t/p/6930608.html -->
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>RNN简介</title>
+</head>
+
+<body>
+	<div class="post">
+		<h1 class="postTitle">
+			RNN(LSTM)简介
+		</h1>
+    <p>循环神经网络RNN相比传统的神经网络在处理序列化数据时更有优势，因为RNN能够将加入上（下）文信息进行考虑。一个简单的RNN如下图所示：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601201859321-1107873695.png"><br>
+    将这个循环展开得到下图：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601203508868-924538983.png"><br>
+    上一时刻的状态会传递到下一时刻。这种链式特性决定了RNN能够很好的处理序列化的数据，RNN 在语音识别，语言建模，翻译，图片描述等问题上已经取得了很到的结果。<br>
+    根据输入、输出的不同和是否有延迟等一些情况，RNN在应用中有如下一些形态：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601204246196-483587313.png"></p>
+    <h3 id="rnn存在的问题">RNN存在的问题</h3>
+    <p>RNN能够把状态传递到下一时刻，好像对一部分信息有记忆能力一样，如下图：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601205539508-2137510198.png"><br>
+    h3的值可能会由x1,x2的值来决定。<br>
+    但是，对于一些复杂场景<br>
+    <img src="/static/RNN_mnist_files/724315-20170601210036852-889823895.png"><br>
+    由于距离太远，中间间隔了太多状态，x1,x2对ht+1的值几乎起不到任何作用。（梯度消失和梯度爆炸）</p>
+    <h3 id="lstmlong-short-term-memory">LSTM（Long Short Term Memory）</h3>
+    <p>由于RNN不能很好地处理这种问题，于是出现了LSTM（Long Short Term Memory）一种加强版的RNN（LSTM可以改善梯度消失问题）。简单来说就是原始RNN没有长期的记忆能力，于是就给RNN加上了一些记忆控制器，实现对某些信息能够较长期的记忆，而对某些信息只有短期记忆能力。<br>
+    <img src="/static/RNN_mnist_files/724315-20170601211213258-575415315.png"><br>如上图所示，LSTM中存在Forget Gate,Input Gate,Output Gate来控制信息的流动程度。<br>
+    RNN：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601212640446-1176255462.png"><br>
+    LSTM：<br>
+    <img src="/static/RNN_mnist_files/724315-20170601212709571-1300974893.png"><br>
+    加号圆圈表示线性相加，乘号圆圈表示用gate来过滤信息。</p><br><br>
+
+</div>
+</div>
+</body>
+</html>

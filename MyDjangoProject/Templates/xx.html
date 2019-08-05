@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>演员信息</title>
+    <!-- 引入 echarts.js -->
+    <script src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+    <div id="tabshow">
+        <table border="1" bgcolor="" background="/static/img/12.jpg">
+            <tr bgcolor="">
+                <th style="color: red">属性</th>
+                <th style="color: red">属性值</th>
+            </tr>
+            {% for k, v in object.items %}
+            <tr>
+                <td>{{ k }}</td>
+                <td>{{ v }}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id = "main" style="width: 1550px;height:750px;border: medium double rgb(250,0,255)">
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'))
+            var option={
+                    title: {
+                        text: '知识图谱',
+                        subtext: '图谱',
+                        top: 'bottom',
+                        left: 'right'
+                    },
+                    series : [
+                        {
+                            name: 'kg',
+                            type: 'graph',
+                            layout: 'force',
+                            legendHoverLink : true,//是否启用图例 hover(悬停) 时的联动高亮。
+                            hoverAnimation : true,//是否开启鼠标悬停节点的显示动画
+                            force : { //力引导图基本配置
+                                //initLayout: ,//力引导的初始化布局，默认使用xy轴的标点
+                                repulsion : 100,//节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
+                                gravity : 0.03,//节点受到的向中心的引力因子。该值越大节点越往中心点靠拢。
+                                edgeLength :150,//边的两个节点之间的距离，这个距离也会受 repulsion。[10, 50] 。值越小则长度越长
+                                layoutAnimation : true
+                            //因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。                        
+                            },
+                            roam : true,//是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
+                            nodeScaleRatio : 0.6,//鼠标漫游缩放时节点的相应缩放比例，当设为0时节点不随着鼠标的缩放而缩放
+                            draggable : true,//节点是否可拖拽，只在使用力引导布局的时候有用。
+                            // focusNodeAdjacency : true,//是否在鼠标移到节点上的时候突出显示节点以及节点的边和邻接节点。
+                            edgeSymbol : ['none', 'none'],//边两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定。默认不显示标记，常见的可以设置为箭头，如下：edgeSymbol: ['circle', 'arrow']
+                            categories : [
+                                {
+                                    name: '演员'
+                                },
+                                {
+                                    name: '电影'
+                                },
+                                {
+                                    name:'属性'
+                                }
+                            ],
+                            itemStyle : {//===============图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                                normal : { //默认样式
+                                    label : {
+                                        show : true
+                                    },
+                                    borderType : 'solid', //图形描边类型，默认为实线，支持 'solid'（实线）, 'dashed'(虚线), 'dotted'（点线）。
+                                    borderColor : 'rgba(255,215,0,1)', //设置图形边框为淡金色,透明度为0.4
+                                    borderWidth : 2, //图形的描边线宽。为 0 时无描边。
+                                    opacity : 1
+                                // 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。默认0.5
+                                },
+                                emphasis : {//高亮状态
+                                }
+                            },
+                            lineStyle : { //==========关系边的公用线条样式。
+                                normal : {
+                                    color : 'rgba(255,0,255,0.8)',
+                                    width : '2',
+                                    type : 'solid', //线的类型 'solid'（实线）'dashed'（虚线）'dotted'（点线）
+                                    // curveness : 0.3, //线条的曲线程度，从0到1
+                                    opacity : 1
+                                // 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。默认0.5
+                                },
+                                emphasis : {//高亮状态
+
+                                }
+                            },
+                            label : { //=============图形上的文本标签
+                                normal : {
+                                    show : true,//是否显示标签。
+                                    position : 'inside',//标签的位置。['50%', '50%'] [x,y]
+                                    textStyle : { //标签的字体样式
+                                        color : 'blue', //字体颜色
+                                        fontStyle : 'normal',//文字字体的风格 'normal'标准 'italic'斜体 'oblique' 倾斜
+                                        fontWeight : 'normal',//'normal'标准'bold'粗的'bolder'更粗的'lighter'更细的或100 | 200 | 300 | 400...
+                                        fontFamily : 'sans-serif', //文字的字体系列
+                                        fontSize : 14, //字体大小
+                                    }
+                                },
+                                emphasis : {//高亮状态
+                                }
+                            },
+                            
+                            data:[
+                                {% for node in nodes %}
+                                    {% if forloop.first %}
+                                        {name:'{{node.name}}', symbolSize:60, category:{{node.category}}}
+                                    {% else %}
+                                        ,{name:'{{node.name}}', symbolSize:60, category:{{node.category}}}
+                                    {% endif %}
+                                {% endfor %}
+                            ],
+                            
+                            links: [
+                                {% for edge in edges %}
+                                    {% if forloop.first %}
+                                        {source:'{{ edge.source }}', target:'{{ edge.target }}'}
+                                    {% else %}
+                                        ,{source:'{{ edge.source }}', target:'{{ edge.target }}'}
+                                    {% endif %}
+                                {% endfor %}
+                            ],
+                        }//series
+                    ]//series
+                }//option
+            myChart.setOption(option)
+        </script>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>predict</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <p>如果你要预测的是手写数字，你上传的图片应该是手写数字，要求大小为28×28像素的灰度图，黑底白字。</p>
+    <p>如果你要预测的是对抗图片，你上传的图片应该是彩色图片，要求大小为299×299像素的rgb图，我已经为你们训练好了十来张。</p>
+
+    <form enctype="multipart/form-data" action="../prepicture/" method="post">
+        {% csrf_token %}
+       <input type="file" name="myfile" />
+       <br/>
+       <br/>
+       <input type="submit" value="预测"/>
+    </form>
+</body>
+</html>

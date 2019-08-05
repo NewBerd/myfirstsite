@@ -1,0 +1,111 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查找信息</title>
+</head>
+<body style="width:400px; height:300px; background: url(/static/img/12.jpg);">
+    <div>
+        <form action="../search-actor" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset >
+                <legend>查找演员</legend>
+                演员的名字：
+                <input type="text" name="actor" value=""><br>           
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-movie" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>查找电影</legend>
+                电影的名字：
+                <input type="text" name="movie" value=""><br>           
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-moviebyscore" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>按评分查找电影</legend>
+                电影的评分区间：最低分
+                <input type="text" name="low" value=""><br>
+                电影的评分区间：最高分  
+                <input type="text" name="high" value=""><br>         
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-allMoviesSomeoneAct" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>查找某个演员演的所有电影</legend>
+                演员的名字：
+                <input type="text" name="actor" value=""><br>           
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-allActorsinMovie" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>查找某部电影的所有主要演员</legend>
+                电影的名字：
+                <input type="text" name="movie" value=""><br>           
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-friends" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>查找某演员的合作者</legend>
+                演员的名字：
+                <input type="text" name="actor" value=""><br>           
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-actorbyxingzuo" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>按星座查找演员</legend>
+                星座的名字：
+                <input type="text" name="xingzuo" value="天蝎座"><br>         
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-actorbyguoji" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>按国籍查找演员</legend>
+                国家的名字：
+                <input type="text" name="guoji" value="中国"><br>         
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+    <div>
+        <form action="../search-actorbyachievement" method="GET">
+            <!-- action里面是urls.py里面的路由 -->
+            <fieldset>
+                <legend>按成就查找演员</legend>
+                成就：
+                <input type="text" name="achievement" value="香港电影金像奖"><br>         
+                <input type="submit" value="Submit">
+            </fieldset>       
+        </form>   
+    </div>
+</body>
+</html>

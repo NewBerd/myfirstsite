@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>关系展示</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div style="color: red;background: url(/static/img/03.jpg);">
+    {% for k, v in data.items %} <!-- 一共三个表 -->
+    <p><b style="color: black; text-align: center;">{{ k }} table</b></p>
+    <table border="1" bgcolor="">
+       {% for line in v %} <!-- 遍历每一个表 -->
+       {% if forloop.first %}
+       <tr>
+            {% for d in line %} <!-- 遍历每一行 -->
+            <th>{{ d }}</th>
+            {% endfor %}
+       </tr>
+       {% else %}
+       <tr>
+           {% for d in line %} <!-- 遍历每一行 -->
+           <td>{{ d }}</td>
+           {% endfor %}
+       </tr>
+       {% endif %}
+       {% endfor %} 
+    </table>
+    {% endfor %}
+</div>
+</body>
+</html>

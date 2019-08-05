@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOP100maoyanmovies</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div style="color: red">
+        <table border="1" bgcolor="yellow">
+            <tr>
+                <th>排名</th>
+                <th>图片</th>
+                <th>中文名</th>
+                <th>主演</th>
+                <th>上映时间</th>
+                <th>得分</th>
+            </tr>
+            {% for movie in movies %}
+                <tr>
+                {% for k, v in movie.items %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

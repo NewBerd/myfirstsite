@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>更新{{ name }}信息</title>
+</head>
+
+<body>
+    <form action="../updatemovie" method="GET">
+        <!-- action里面是urls.py里面的路由 -->
+        <fieldset>
+            <legend>{{ name }}信息</legend>
+            需要更新的{{ name }}的名字：
+            <input type="text" name="movie" value=""><br>
+            需要更新的信息1 <input type="text" name="key1" value="上映日期"> ：
+            <input type="text" name="value1" value="yyyymmdd"><br>
+            需要更新的信息2 <input type="text" name="key2"> ：
+            <input type="text" name="value2"><br>
+            需要更新的信息3 <input type="text" name="key3"> ：
+            <input type="text" name="value3"><br>
+            需要更新的信息4 <input type="text" name="key4"> ：
+            <input type="text" name="value4"><br>
+            需要更新的信息5 <input type="text" name="key5"> ：
+            <input type="text" name="value5"><br>
+                        
+            <input type="submit" value="Submit">
+        </fieldset>       
+    </form>
+</body>
+</html>

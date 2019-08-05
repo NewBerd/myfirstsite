@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://baijiahao.baidu.com/s?id=1628902000717534995&wfr=spider&for=pc -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>逻辑回归简介</title>
+    </head>
+    <body style="">
+
+        <h2>
+            逻辑回归原理
+        </h2>
+        <div>
+            <p>
+                <span class="bjh-p">逻辑回归虽然带有回归字样，但是逻辑回归属于分类算法。逻辑回归可以进行多分类操作，但由逻辑回归算法本身性质决定其更常用于二分类。</span>
+            </p>
+            <p>
+                <span class="bjh-h3">逻辑回归概念：</span>
+            </p>
+            <p>
+                <span class="bjh-p">首先我们给出逻辑回归的公式：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="127px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/2caf3c84ebb361da259d528394610e732929.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">其中，Y为决策值，x为特征值，e为自然对数。</span>
+            </p>
+            <p>
+                <span class="bjh-p">Y(x)的图形如下：</span>
+            </p>
+            <div class="img-container">
+                <img class="large" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/cefc1e178a82b901a9220055e97239733b12efca.png" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">该函数是一条S形的曲线，并且曲线在中心点附近的增长速度较快，在两段的增长速度较慢。w值越大，曲线中心的增长速度越快。从图上可知，Y的值域为(0,1)，那么就可以将决策函数值大于等于0.5的具有对应x属性的对象归为正样本，决策函数值小于0.5的具有对应x属性的对象归为负样本。这样就可以对样本 数据进行二分类。</span>
+            </p>
+            <p>
+                <span class="bjh-h3">逻辑回归推导：</span>
+            </p>
+            <p>
+                <span class="bjh-p">逻辑回归是一种简单，常见的二分类模型，通过输入未知类别对象的属性特征序列得到对象所处的类别。由于Y(x)是一个概率分布函数，因此对于二分类而言，离中心点的距离越远，其属于某一类的可能性就越大。</span>
+            </p>
+            <p>
+                <span class="bjh-p">对于常见二分类，逻辑回归通过一个区间分布进行划分，即如果Y值大于等于0.5,则属于正样本，如果Y值小于0.5，则属于负样本，这样就可以得到逻辑回归模型，判别函数如下：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="173px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/516884747928241d8eb7305735df4f207759.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">在模型参数w与b没有确定的情况下，模型是无法工作的，因此接下来就是在实际应用期间最重要的是模型参数w和b的估计。</span>
+            </p>
+            <p>
+                <span class="bjh-p">其代价函数为：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="296px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/a6dfe27b7130c97d5ede5c49d0f42f4e8968.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">给定y值为1时，代价函数曲线横坐标为决策函数Y(x)的值越接近1，则代价越小,反之越大。当决策函数Y(x)的值为1时，代价为0。类似的，当给定y值为0时有同样的性质。</span>
+            </p>
+            <p>
+                <span class="bjh-p">如果将所有m个样本的代价累加并平均，就可以得到最终的代价函数：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="200px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/dc8d80073cdc11e6c3d50230cabd8e132912.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">由于y的取值为0或1，结合上面两个公式可以得到：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="405px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/2bf62e7fb74a74664fdeaa7c11f73d4d9121.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">这样就得到了样本的总的代价函数，代价越小表明所得到模型更符合真实模型。当损失函数最小的时候，就得到了所求参数。关于损失函数的求解，可以通过梯度下降法求解，先设置一个学习率。从1到n，更新：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="128px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/133003c4fda7293564c58eda27a178997225.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">其中：</span>
+            </p>
+            <div class="img-container">
+                <img class="normal" width="237px" data-loadfunc="0" src="/static/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92_files/72930a21f5261a97a6ca353f10e99d164235.gif" data-loaded="0">
+            </div>
+            <p>
+                <span class="bjh-p">重复更新步骤，直到代价函数的值收敛为止。对于学习率的设定，如果过小，则可能会迭代过多的次数而导致整个过程变得很慢；如果过大，则可能导致错过最佳收敛点。所以，在计算过程中要选择合适的学习率。</span>
+            </p><br><br>
+        </div>
+    </body>
+</html>
