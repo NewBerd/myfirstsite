@@ -306,7 +306,7 @@
 
 >MyDjangoProject
 >>db.sqlite3
->>manage.py
+>>manage.py  
 >>README.md
 >>网站展示.docx
 >>MyDjangoProject
@@ -345,94 +345,182 @@ MyDjangoProject
 	没有使用
 	
 ### 4.3 static
->static
->>files 这是爬虫生成的导入数据库的标准文件，删除也没关系还会自动生成
->>>actors.csv 
->>>actors.txt
->>>movies.csv
->>>movies.json
->>>relations.csv
->>img 这是网页的背景图和效果图
->>>03.jpg
->>>12.jpg
->>>backgroundimg00.jpg
->>>backgroundimg02.jpg
->>>con_brief01.png
->>>con_brief02.png
->>js 这是js文件
->>>echarts.min.js
->>>jquery-1.12.2.js
->>pictures 这是网页上传的预测图片
->>>0.png
->>>001.jpg
->>>003.jpg
->>>004.jpg
->>>010.jpg
->>>1.png
->>>hack_car.png
->>>hack_car1.png
->>>raw_car1_gaitubao_299x299.png
->>RNN_mnist_files 这是网页里面的图片
->>>724315-20170601201859321-1107873695.png
->>>724315-20170601203508868-924538983.png
->>trained_models 这是训练好的模型数据文件
->>>inception_v3_on_imageNet.h5
->>>cnn_model
->>>>checkpoint
->>>>cnn_model.data-00000-of-00001
->>>>cnn_model.index
->>>>cnn_model.meta
->>>logistic_model
->>>>checkpoint
->>>>logistic_model.data-00000-of-00001
->>>>logistic_model.index
->>>>logistic_model.meta
->>>mlp_model
->>>>checkpoint
->>>>mlp_model.data-00000-of-00001
->>>>mlp_model.index
->>>>mlp_model.meta
->>>rnn_mnist
->>>>checkpoint
->>>>rnn_mnist.data-00000-of-00001
->>>>rnn_mnist.index
->>>>rnn_mnist.meta
->>一文读懂逻辑回归_files
->>>133003c4fda7293564c58eda27a178997225.gif
->>>2bf62e7fb74a74664fdeaa7c11f73d4d9121.gif
->>>2caf3c84ebb361da259d528394610e732929.gif
->>>516884747928241d8eb7305735df4f207759.gif
->>卷积神经网络_files
->>>1093303-20170430194934006-705271151.jpg
->>>1093303-20170430194958725-2144325242.png
->>>dl_3_12.gif
->>>dl_3_2.png
->>>dl_3_3.png
->>多层感知机原理详解_files
->>>1344061-20180506113004354-1567433739.png
->>>1344061-20180506115221964-706278801.png
->>>1344061-20180506115759574-1741102562.png
->>>1344061-20180506120127501-1511095651.png
->>>1344061-20180506120148259-1417578443.png
+> static
+
+> > files //这是爬虫生成的导入数据库的标准文件，删除也没关系还会自动生成
+> >
+> > > actors.csv 
+> > >
+> > > actors.txt
+> > >
+> > > movies.csv
+> > >
+> > >  movies.json
+> > >
+> > > relations.csv
+
+> > img //这是网页的背景图和效果图
+> >
+> > > 03.jpg
+> > >
+> > > 12.jpg
+> > >
+> > > backgroundimg00.jpg
+> > >
+> > > backgroundimg02.jpg
+> > >
+> > > con_brief01.png
+> > >
+> > > con_brief02.png
+
+> > js //这是js文件
+> >
+> > > echarts.min.js
+> > >
+> > > jquery-1.12.2.js
+
+> > pictures //这是网页上传的预测图片
+>
+> > 0.png
+> >
+> > 001.jpg
+> >
+> >  003.jpg
+> >
+> > 004.jpg
+> >
+> > 010.jpg
+> >
+> > 1.png
+> >
+> > 10.png
+> >
+> > 11.png
+> >
+> > 13.png
+> >
+> > 14.png
+> >
+> > 17.png
+> >
+> > hack_car.png
+> >
+> > hack_car1.png
+> >
+> > hack_cat.png
+> >
+> > hack_cat1.png
+> >
+> > hack_dog.png
+> >
+> > hack_dog1.png
+> >
+> > hack_horse1.png
+> >
+> > raw_car1_gaitubao_299x299.png
+> >
+> > raw_ji1_gaitubao_299x299.png
+> >
+> > raw_mouse_gaitubao_299x299.png
+> >
+> > raw_niu_gaitubao_299x299.png 
+> >
+> > raw_yang1_gaitubao_299x299.png
+> >
+> > raw_yang_gaitubao_299x299.png
+
+> > RNN_mnist_files //这是网页里面的图片
+> >
+> > > 724315-20170601201859321-1107873695.png
+> > >
+> > > 724315-20170601203508868-924538983.png
+> > >
+> > > 724315-20170601204246196-483587313.png
+
+> > trained_models //这是训练好的模型数据文件
+> >
+> > > inception_v3_on_imageNet.h5
+
+> > > cnn_model //cnn模型
+> > >
+> > > > checkpoint
+> > > >
+> > > > cnn_model.data-00000-of-00001
+> > > >
+> > > > cnn_model.index
+> > > >
+> > > > cnn_model.meta
+
+> > > logistic_model //逻辑回归模型
+> > >
+> > > > checkpoint
+> > > >
+> > > > logistic_model.data-00000-of-00001
+> > > >
+> > > > logistic_model.index
+> > > >
+> > > > logistic_model.meta
+
+> > > mlp_model //多层感知机模型
+> > >
+> > > > checkpoint
+> > > >
+> > > > mlp_model.data-00000-of-00001
+> > > >
+> > > > mlp_model.index
+> > > >
+> > > > mlp_model.meta
+
+> > > rnn_mnist //rnn模型
+> > >
+> > > > checkpoint
+> > > >
+> > > > rnn_mnist.data-00000-of-00001
+> > > >
+> > > > rnn_mnist.index
+> > > >
+> > > > rnn_mnist.meta
+
+> > 一文读懂逻辑回归_files //网页内引用的图片
+> >
+> > _卷积神经网络_files //网页内引用的图片
+> >
+> > 多层感知机原理详解_files //网页内引用的图片
 
 ### 4.4 Templates
->Templates 这里面都是每个网页的html文件
->>00.html
->>1_index.html
->>addactor.html
->>addmovie.html
->>addrelation.html
->>con-brief.html
->>con_picture.html
->>con_pre.html
->>delactor.html
->>delmovie.html
->>一文读懂逻辑回归.html
->>卷积神经网络.html
->>卷积神经网络源码.html
->>多层感知机原理详解.html
->>情感分析-CNN.html
->>神经网络-感知机-source-code.html
+Templates 这里面都是每个网页的html文件
+
+> 00.html
+>
+> 1_index.html
+>
+> addactor.html
+>
+> addmovie.html
+>
+> addrelation.html
+>
+> con-brief.html
+>
+> con_picture.html
+>
+> con_pre.html
+>
+> delactor.html
+>
+> delmovie.html
+>
+> 一文读懂逻辑回归.html
+>
+> 卷积神经网络.html
+>
+> 卷积神经网络源码.html
+>
+> 多层感知机原理详解.html
+>
+> 情感分析-CNN.html
+>
+> 神经网络-感知机-source-code.html
 
 ## 五、以下是测试内容
     first test
