@@ -1,81 +1,147 @@
 ## 一、关于设计
 ### 1.1 知识图谱
 #### 1.1.1 知识的获取
+
 知识的获取主要是两个来源，包括猫眼评分最高的100部中外电影，通过爬虫可以得到电影的格式化信息，其中包括了该部电影的中文名，得分，上映日期，主要演员，等。通过对主要演员的解析，可以得到该电影的主要演员，然后再去百度百科将获取到的演员的信息爬取下来，抽取其中共现频率最高的10个属性，处理为格式化数据。然后通过分析，建立电影与演员的关系，将它们导入到图数据库Neo4j中，形成一个小规模的知识图谱（大约400个节点，400条边）。
+
 #### 1.1.2 知识的增删改查
+
 通过第一步的操作，我们已经得到了一个基础的知识图谱，但是这是不够的，因为知识图谱是需要动态更新的。所以我又添加了增删该查的功能，最主要的是查找。
 其中增的功能，可以增加一个演员，一个电影，或者一个关系；删的功能，可以删除一个演员或者一个电影，因为关系是依附于节点的，所以关系不能够被单独删去；可以更新电影或者演员的属性信息；查找的功能最丰富，并且是通过图的形式展示的，我们提供了通过演员的名字查找演员信息，通过电影名查找电影，按评分查找电影，查找某演员演的所有（仅指本知识图谱中的所有，下同）电影，某电影的所有主演，某演员的所有合作者（同演过一部电影），按星座、国籍、成就查找演员。
 
 ### 1.2 深度学习
 #### 1.2.1 手写数字识别
+
 在手写数字识别模块，本系统提供了四个模型，分别是逻辑回归，多层感知机，卷积神经网络和循环神经网络（这个虽然不常见，但是也可以提供很好的预测效果）。
 这一部分有三个功能，一是学习功能，每一个模型都有图文并茂的原理介绍，帮助快速了解模型的原理；二是实践功能，提供了模型的源码，使得你在阅读了模型原理后，可以直接上手照着敲代码，进行实战的训练，加深记忆与理解，并通过实践提升兴趣；三是预测功能，在这个部分，你可以直接上传一张手写数字，我的模型会告诉你你刚才上传的图片是几，并给出预测概率。
+
 #### 1.2.2 神经网络对抗图片生成
+
 在这一个模块中，同样有三个功能，一个是对抗图片生成的原理，二是对抗图片的生成，因为生成一个图片需要耗费数个小时，因此不建议使用，不过我已经为你生成了十几张对抗图片，你可以拿来直接使用，三是预测功能，你可以上传一张图片，模型会告诉你它的类别。
+
 #### 1.2.3 waitting for you
+
 也许你已经发现了，以上功能都是涉及的图片，缺失了另一个重要的领域，自然语言处理。这个以后会慢慢添加上去，而且假如你有兴趣的话，也可以上传相关代码给我的这个小项目，大家一起帮助改进。
 
 ## 二、关于使用
 ### 2.1 底层应用的安装
 #### 2.1.1 python
+
 本项目使用的python语言，因此你首先需要安装python，版本为3.6.8，需要的库有：
-Package              Version
--------------------- -----------
-absl-py              0.7.1
-astor                0.8.0
-attrs                19.1.0
-backcall             0.1.0
-beautifulsoup4       4.7.1
-bleach               3.1.0
-bosonnlp             0.11.1
-boto                 2.49.0
-boto3                1.9.159
-botocore             1.12.159
-certifi              2019.6.16
-Click                7.0
-colorama             0.4.1
-cssselect            1.0.3
-cycler               0.10.0
-Cython               0.29.3
-DateTime             4.3
-decorator            4.4.0
-defusedxml           0.6.0
-Django               2.0
-docopt               0.6.2
-docutils             0.14
-entrypoints          0.3
-funcsigs             1.0.2
-future               0.17.1
-gast                 0.2.2
-gensim               3.7.0
-graphviz             0.10.1
-grpcio               1.21.1
-h5py                 2.9.0
-ipykernel            5.1.1
-ipython              7.3.0
-ipython-genutils     0.2.0
-ipywidgets           7.4.2
-itchat               1.2.32
-jedi                 0.13.3
-jieba                0.39
-Jinja2               2.10.1
-jmespath             0.9.4
-jsonschema           3.0.1
-jupyter              1.0.0
-jupyter-client       5.2.4
-jupyter-console      6.0.0
-jupyter-core         4.4.0
-jupyterthemes        0.20.0
-Keras                2.2.4
-Keras-Applications   1.0.8
-Keras-Preprocessing  1.1.0
-kiwisolver           1.1.0
-lesscpy              0.13.0
-lxml                 4.3.0
-Markdown             3.0.1
-MarkupSafe           1.1.1
-matplotlib           2.2.3
-mistune              0.8.4
+Package              Version   
+
+-------------------- -----------   
+
+absl-py              0.7.1   
+
+astor                0.8.0  
+
+attrs                19.1.0   
+
+backcall             0.1.0  
+
+beautifulsoup4       4.7.1  
+
+bleach               3.1.0  
+
+bosonnlp             0.11.1  
+
+boto                 2.49.0  
+
+boto3                1.9.159  
+
+botocore             1.12.159  
+
+certifi              2019.6.16  
+
+Click                7.0  
+
+colorama             0.4.1  
+
+cssselect            1.0.3  
+
+cycler               0.10.0   
+
+Cython               0.29.3   
+
+DateTime             4.3   
+
+decorator            4.4.0   
+
+defusedxml           0.6.0   
+
+Django               2.0   
+
+docopt               0.6.2   
+
+docutils             0.14   
+
+entrypoints          0.3   
+
+funcsigs             1.0.2   
+
+future               0.17.1   
+
+gast                 0.2.2   
+
+gensim               3.7.0   
+
+graphviz             0.10.1   
+
+grpcio               1.21.1   
+
+h5py                 2.9.0    
+
+ipykernel            5.1.1    
+
+ipython              7.3.0   
+
+ipython-genutils     0.2.0   
+
+ipywidgets           7.4.2    
+
+itchat               1.2.32    
+
+jedi                 0.13.3    
+
+jieba                0.39    
+
+Jinja2               2.10.1    
+
+jmespath             0.9.4    
+
+jsonschema           3.0.1    
+
+jupyter              1.0.0    
+
+jupyter-client       5.2.4    
+
+jupyter-console      6.0.0   
+
+jupyter-core         4.4.0   
+
+jupyterthemes        0.20.0   
+
+Keras                2.2.4   
+
+Keras-Applications   1.0.8   
+
+Keras-Preprocessing  1.1.0    
+
+kiwisolver           1.1.0   
+
+lesscpy              0.13.0    
+
+lxml                 4.3.0   
+
+Markdown             3.0.1   
+
+MarkupSafe           1.1.1   
+
+matplotlib           2.2.3    
+
+mistune              0.8.4    
+
 mock                 3.0.5
 mysqlclient          1.4.2.post1
 nbconvert            5.5.0
