@@ -7,14 +7,12 @@
 
 #### 1.1.2 知识的增删改查
 
-	通过第一步的操作，我们已经得到了一个基础的知识图谱，但是这是不够的，因为知识图谱是需要动态更新的。所以我又添加了增删该查的功能，最主要的是查找。
-其中增的功能，可以增加一个演员，一个电影，或者一个关系；删的功能，可以删除一个演员或者一个电影，因为关系是依附于节点的，所以关系不能够被单独删去；可以更新电影或者演员的属性信息；查找的功能最丰富，并且是通过图的形式展示的，我们提供了通过演员的名字查找演员信息，通过电影名查找电影，按评分查找电影，查找某演员演的所有（仅指本知识图谱中的所有，下同）电影，某电影的所有主演，某演员的所有合作者（同演过一部电影），按星座、国籍、成就查找演员。
+	通过第一步的操作，我们已经得到了一个基础的知识图谱，但是这是不够的，因为知识图谱是需要动态更新的。所以我又添加了增删该查的功能，最主要的是查找。其中增的功能，可以增加一个演员，一个电影，或者一个关系；删的功能，可以删除一个演员或者一个电影，因为关系是依附于节点的，所以关系不能够被单独删去；可以更新电影或者演员的属性信息；查找的功能最丰富，并且是通过图的形式展示的，我们提供了通过演员的名字查找演员信息，通过电影名查找电影，按评分查找电影，查找某演员演的所有（仅指本知识图谱中的所有，下同）电影，某电影的所有主演，某演员的所有合作者（同演过一部电影），按星座、国籍、成就查找演员。
 
 ### 1.2 深度学习
 #### 1.2.1 手写数字识别
 
-	在手写数字识别模块，本系统提供了四个模型，分别是逻辑回归，多层感知机，卷积神经网络和循环神经网络（这个虽然不常见，但是也可以提供很好的预测效果）。
-这一部分有三个功能，一是学习功能，每一个模型都有图文并茂的原理介绍，帮助快速了解模型的原理；二是实践功能，提供了模型的源码，使得你在阅读了模型原理后，可以直接上手照着敲代码，进行实战的训练，加深记忆与理解，并通过实践提升兴趣；三是预测功能，在这个部分，你可以直接上传一张手写数字，我的模型会告诉你你刚才上传的图片是几，并给出预测概率。
+	在手写数字识别模块，本系统提供了四个模型，分别是逻辑回归，多层感知机，卷积神经网络和循环神经网络（这个虽然不常见，但是也可以提供很好的预测效果）。这一部分有三个功能，一是学习功能，每一个模型都有图文并茂的原理介绍，帮助快速了解模型的原理；二是实践功能，提供了模型的源码，使得你在阅读了模型原理后，可以直接上手照着敲代码，进行实战的训练，加深记忆与理解，并通过实践提升兴趣；三是预测功能，在这个部分，你可以直接上传一张手写数字，我的模型会告诉你你刚才上传的图片是几，并给出预测概率。
 
 #### 1.2.2 神经网络对抗图片生成
 
@@ -28,255 +26,255 @@
 ### 2.1 底层应用的安装
 #### 2.1.1 python
 
-	本项目使用的python语言，因此你首先需要安装python，版本为3.6.8，需要的库有：  
+	本项目使用的python语言，因此你首先需要安装python，版本为3.6.8，需要的库有：
+	
+	Package              Version   
 
-Package              Version   
+	-------------------- -----------   
 
--------------------- -----------   
+	absl-py              0.7.1   
 
-absl-py              0.7.1   
+	astor                0.8.0  
 
-astor                0.8.0  
+	attrs                19.1.0   
 
-attrs                19.1.0   
+	backcall             0.1.0  
 
-backcall             0.1.0  
+	beautifulsoup4       4.7.1  
 
-beautifulsoup4       4.7.1  
+	bleach               3.1.0  
 
-bleach               3.1.0  
+	bosonnlp             0.11.1  
 
-bosonnlp             0.11.1  
+	boto                 2.49.0  
 
-boto                 2.49.0  
+	boto3                1.9.159  
 
-boto3                1.9.159  
+	botocore             1.12.159  
 
-botocore             1.12.159  
+	certifi              2019.6.16  
 
-certifi              2019.6.16  
+	Click                7.0  
 
-Click                7.0  
+	colorama             0.4.1  
 
-colorama             0.4.1  
+	cssselect            1.0.3  
 
-cssselect            1.0.3  
+	cycler               0.10.0   
 
-cycler               0.10.0   
+	Cython               0.29.3   
 
-Cython               0.29.3   
+	DateTime             4.3   
 
-DateTime             4.3   
+	decorator            4.4.0   
 
-decorator            4.4.0   
+	defusedxml           0.6.0   
 
-defusedxml           0.6.0   
+	Django               2.0   
 
-Django               2.0   
+	docopt               0.6.2   
 
-docopt               0.6.2   
+	docutils             0.14   
 
-docutils             0.14   
+	entrypoints          0.3   
 
-entrypoints          0.3   
+	funcsigs             1.0.2   
 
-funcsigs             1.0.2   
+	future               0.17.1   
 
-future               0.17.1   
+	gast                 0.2.2   
 
-gast                 0.2.2   
+	gensim               3.7.0   
 
-gensim               3.7.0   
+	graphviz             0.10.1   
 
-graphviz             0.10.1   
+	grpcio               1.21.1   
 
-grpcio               1.21.1   
+	h5py                 2.9.0    
 
-h5py                 2.9.0    
+	ipykernel            5.1.1    
 
-ipykernel            5.1.1    
+	ipython              7.3.0   
 
-ipython              7.3.0   
+	ipython-genutils     0.2.0   
 
-ipython-genutils     0.2.0   
+	ipywidgets           7.4.2    
 
-ipywidgets           7.4.2    
+	itchat               1.2.32    
 
-itchat               1.2.32    
+	jedi                 0.13.3    
 
-jedi                 0.13.3    
+	jieba                0.39    
 
-jieba                0.39    
+	Jinja2               2.10.1    
 
-Jinja2               2.10.1    
+	jmespath             0.9.4    
 
-jmespath             0.9.4    
+	jsonschema           3.0.1    
 
-jsonschema           3.0.1    
+	jupyter              1.0.0    
 
-jupyter              1.0.0    
+	jupyter-client       5.2.4    
 
-jupyter-client       5.2.4    
+	jupyter-console      6.0.0   
 
-jupyter-console      6.0.0   
+	jupyter-core         4.4.0   
 
-jupyter-core         4.4.0   
+	jupyterthemes        0.20.0   
 
-jupyterthemes        0.20.0   
+	Keras                2.2.4   
 
-Keras                2.2.4   
+	Keras-Applications   1.0.8   
 
-Keras-Applications   1.0.8   
+	Keras-Preprocessing  1.1.0    
 
-Keras-Preprocessing  1.1.0    
+	kiwisolver           1.1.0   
 
-kiwisolver           1.1.0   
+	lesscpy              0.13.0    
 
-lesscpy              0.13.0    
+	lxml                 4.3.0   
 
-lxml                 4.3.0   
+	Markdown             3.0.1   
 
-Markdown             3.0.1   
+	MarkupSafe           1.1.1   
 
-MarkupSafe           1.1.1   
+	matplotlib           2.2.3    
 
-matplotlib           2.2.3    
+	mistune              0.8.4    
 
-mistune              0.8.4    
+	mock                 3.0.5   
 
-mock                 3.0.5   
+	mysqlclient          1.4.2.post1   
 
-mysqlclient          1.4.2.post1   
+	nbconvert            5.5.0   
 
-nbconvert            5.5.0   
+	nbformat             4.4.0   
 
-nbformat             4.4.0   
+	neobolt              1.7.13    
 
-neobolt              1.7.13    
+	neotime              1.7.4    
 
-neotime              1.7.4    
+	networkx             2.3    
 
-networkx             2.3    
+	nltk                 3.4    
 
-nltk                 3.4    
+	notebook             5.7.5    
 
-notebook             5.7.5    
+	numpy                1.16.4     
 
-numpy                1.16.4     
+	opencv-python        4.1.0.25    
 
-opencv-python        4.1.0.25    
+	paddlepaddle         1.3.1    
 
-paddlepaddle         1.3.1    
+	pandas               0.23.4     
 
-pandas               0.23.4     
+	pandocfilters        1.4.2     
 
-pandocfilters        1.4.2     
+	parso                0.4.0    
 
-parso                0.4.0    
+	pickleshare          0.7.5    
 
-pickleshare          0.7.5    
+	Pillow               5.4.1    
 
-Pillow               5.4.1    
+	pip                  19.1.1    
 
-pip                  19.1.1    
+	ply                  3.11   
 
-ply                  3.11   
+	pqi                  2.0.6   
 
-pqi                  2.0.6   
+	prometheus-client    0.6.0   
 
-prometheus-client    0.6.0   
-  
-prompt-toolkit       2.0.9   
+	prompt-toolkit       2.0.9   
 
-protobuf             3.8.0    
+	protobuf             3.8.0    
 
-py2neo               4.3.0    
+	py2neo               4.3.0    
 
-Pygments             2.3.1     
+	Pygments             2.3.1     
 
-PyMySQL              0.9.3    
+	PyMySQL              0.9.3    
 
-pyparsing            2.4.0     
+	pyparsing            2.4.0     
 
-pypng                0.0.19    
+	pypng                0.0.19    
 
-PyQRCode             1.2.1     
+	PyQRCode             1.2.1     
 
-pyquery              1.4.0     
+	pyquery              1.4.0     
 
-pyrsistent           0.15.2    
- 
-python-dateutil      2.7.5     
+	pyrsistent           0.15.2    
 
-pytz                 2018.9     
+	python-dateutil      2.7.5     
 
-pywinpty             0.5.5    
+	pytz                 2018.9     
 
-PyYAML               5.1     
+	pywinpty             0.5.5    
 
-pyzmq                18.0.1     
+	PyYAML               5.1     
 
-qtconsole            4.5.1     
+	pyzmq                18.0.1     
 
-rarfile              3.0     
+	qtconsole            4.5.1     
 
-recordio             0.1.7     
+	rarfile              3.0     
 
-requests             2.9.2     
+	recordio             0.1.7     
 
-s3transfer           0.2.0     
+	requests             2.9.2     
 
-scikit-learn         0.20.2     
+	s3transfer           0.2.0     
 
-scipy                1.2.0     
+	scikit-learn         0.20.2     
 
-seaborn              0.9.0     
+	scipy                1.2.0     
 
-Send2Trash           1.5.0      
+	seaborn              0.9.0     
 
-setuptools           40.6.2     
+	Send2Trash           1.5.0      
 
-singledispatch       3.4.0.3     
+	setuptools           40.6.2     
 
-six                  1.12.0    
+	singledispatch       3.4.0.3     
 
-smart-open           1.8.4    
+	six                  1.12.0    
 
-soupsieve            1.9.1    
+	smart-open           1.8.4    
 
-tensorboard          1.13.1    
+	soupsieve            1.9.1    
 
-tensorflow           1.13.1    
+	tensorboard          1.13.1    
 
-tensorflow-estimator 1.13.0    
+	tensorflow           1.13.1    
 
-termcolor            1.1.0    
+	tensorflow-estimator 1.13.0    
 
-terminado            0.8.2    
+	termcolor            1.1.0    
 
-testpath             0.4.2     
+	terminado            0.8.2    
 
-tflearn              0.3.2     
+	testpath             0.4.2     
 
-tornado              6.0.2    
+	tflearn              0.3.2     
 
-traitlets            4.3.2        
+	tornado              6.0.2    
 
-urllib3              1.24.3     
+	traitlets            4.3.2        
 
-wcwidth              0.1.7    
- 
-webencodings         0.5.1    
+	urllib3              1.24.3     
 
-Werkzeug             0.15.4    
+	wcwidth              0.1.7    
 
-wheel                0.33.4    
+	webencodings         0.5.1    
 
-widgetsnbextension   3.4.2    
+	Werkzeug             0.15.4    
 
-wxpy                 0.3.9.8    
+	wheel                0.33.4    
 
-zope.interface       4.6.0    
+	widgetsnbextension   3.4.2    
+
+	wxpy                 0.3.9.8    
+
+	zope.interface       4.6.0    
 
 	一个一个安装太麻烦，你可以新建一个requirement.txt文件，将上面的信息复制到文件中，然后运行命令pip install -r requirement.txt进行批量安装，如果你嫌速度慢，还可以为pip 换源，这里就不教你怎么换了，你只需要知道还有换源这么个操作就行了，我告诉了你这里有条路（我认为这是比较重要的，因为我自己就是从来没人告诉过我还有这么一条路可以走，是我无意间发现的），至于怎么走网上有很多教程。
 
@@ -288,16 +286,15 @@ zope.interface       4.6.0
 
 	Neo4j是基于java开发的，所以首先需要安装一个java，并且需要是java1.8.xx版本。Linux系统中已经自带了，你可以直接运行命令java -version查看你的java版本是否符合要求，不符合要求的要进行更新或者重装。
 
-	然后安装neo4j：首先去[官网](https://neo4j.com/download-thanks/?edition=community&release=3.3.9&flavour=unix#)
-下载社区版的neo4j，它分为windows,mac,linux版本，下载自己需要的（后面的讲解以linux为例）。然后解压tar -xf neo4j-community-3.3.9-unix.tar.gz，首先找到conf文件夹，打开neo4j.conf文件，找到dbms.directories.import=import将其注释掉，然后找到dbms.connectors.default_listen_address=0.0.0.0 将其取消注释并改为你服务器的地址，然后找到#dbms.connector.bolt.listen_address=:7687 与#dbms.connector.http.listen_address=:7474 ，取消注释。然后退回父目录，你将看到bin文件夹，不要进入（再说一遍不要进入），直接在命令行中输入bin/neo4j console
-初始化服务，按照提示的网址打开浏览器，使用http协议登陆，端口号为7474，设置用户名为neo4j，密码为123456。以后在运行本项目的时候要输入bin/neo4j strat ，关闭服务使用bin/neo4j stop, 查看状态使用bin/neo4j status， 重启使用bin/neo4j restart.
+	然后安装neo4j：首先去[官网](https://neo4j.com/download-thanks/?edition=community&release=3.3.9&flavour=unix#)下载社区版的neo4j，它分为windows,mac,linux版本，下载自己需要的（后面的讲解以linux为例）。然后解压tar -xf neo4j-community-3.3.9-unix.tar.gz，首先找到conf文件夹，打开neo4j.conf文件，找到dbms.directories.import=import将其注释掉，然后找到dbms.connectors.default_listen_address=0.0.0.0 将其取消注释并改为你服务器的地址，然后找到#dbms.connector.bolt.listen_address=:7687 与#dbms.connector.http.listen_address=:7474 ，取消注释。然后退回父目录，你将看到bin文件夹，不要进入（再说一遍不要进入），直接在命令行中输入bin/neo4j console初始化服务，按照提示的网址打开浏览器，使用http协议登陆，端口号为7474，设置用户名为neo4j，密码为123456。以后在运行本项目的时候要输入bin/neo4j strat ，关闭服务使用bin/neo4j stop, 查看状态使用bin/neo4j status， 重启使用bin/neo4j restart.
 
 #### 2.1.3 keras
 
 	linux下的keras有一个bug，那就是它找不到imagenet_class_index.json ，因此在使用imagenet 训练出来的模型预测图片时该库会报错，无法预测，这个问题我在windows里面是没有发现的，当时写老师布置的作业时我就只能使用服务训练图片但却不能使用它来进行预测，当时也没找到解决办法，但是现在不行了，这个问题不解决这个项目就不能布置到服务器上。于是我花了两天时间慢慢地在库里面查看源代码，后来找到了解决办法。首先你需要去网上把imagenet_class_index.json 下载下来（本项目已经给你下载好了），然后将它放到 ~/.keras/models目录下即可。
 	
 ### 2.2 使用本项目
-	当上面的软件都正确安装完成后，进入项目目录中，首先你需要修改几个配置项。首先进入MyDjangoProject/MyDjangoProject 中，打开settings.py文件，找到ALLOWED_HOSTS = []，将你的服务器地址添加进去，或者你可以直接添加"*" ，这样所有的地址都可以访问不过不建议这么做。然后打开views.py文件，修改host = '127.0.0.1'，port = '127.0.0.1:8000' 为自己的服务器地址。
+
+	当上面的软件都正确安装完成后，进入项目目录中，首先你需要修改几个配置项。首先进入MyDjangoProject/MyDjangoProject 中，打开settings.py文件，找到ALLOWED_HOSTS = []，将你的服务器地址添加进去，或者你可以直接添加"*" ，这样所有的地址都可以访问不过不建议这么做。然后打开views.py文件，修改host = '127.0.0.1'，port = '127.0.0.1:8000' 为*自己的服务器地址*。
 	
 	然后回到上级目录，你可以看到manage.py文件，运行命令python manage.py runserver '你的服务器地址:8000' ，然后在浏览器中输入网站主页地址：你的服务器地址:8000/FTQ/，你就可以看到我的网站了。然后你就可以使用了。
 	
@@ -313,430 +310,117 @@ zope.interface       4.6.0
 >>README.md
 >>网站展示.docx
 >>MyDjangoProject
->>>deepviews.py
->>>neo_db.py
->>>prediction_models.py
->>>settings.py
->>>spider.py
->>>urls.py
->>>views.py
->>>wsgi.py
->>>__init__.py
->>>__pycache__
->>>>deepviews.cpython-36.pyc
->>>>neo_db.cpython-36.pyc
->>>>prediction_models.cpython-36.pyc
->>>>settings.cpython-36.pyc
->>>>spider.cpython-36.pyc
->>>>urls.cpython-36.pyc
->>>>views.cpython-36.pyc
->>>>wsgi.cpython-36.pyc
->>>>__init__.cpython-36.pyc
-│
-├─MyKG
-│  │  admin.py
-│  │  apps.py
-│  │  models.py
-│  │  tests.py
-│  │  views.py
-│  │  __init__.py
-│  │
-│  └─migrations
-│          __init__.py
-│
-├─static
-│  ├─files
-│  │      actors.csv
-│  │      actors.txt
-│  │      movies.csv
-│  │      movies.json
-│  │      relations.csv
-│  │
-│  ├─img
-│  │      03.jpg
-│  │      12.jpg
-│  │      backgroundimg00.jpg
-│  │      backgroundimg02.jpg
-│  │      con_brief01.png
-│  │      con_brief02.png
-│  │
-│  ├─js
-│  │      echarts.min.js
-│  │      jquery-1.12.2.js
-│  │
-│  ├─pictures
-│  │      0.png
-│  │      001.jpg
-│  │      003.jpg
-│  │      004.jpg
-│  │      010.jpg
-│  │      1.png
-│  │      10.png
-│  │      11.png
-│  │      13.png
-│  │      14.png
-│  │      17.png
-│  │      18.png
-│  │      19.png
-│  │      2.png
-│  │      23.png
-│  │      3.png
-│  │      3比4.jpg
-│  │      4.png
-│  │      5.png
-│  │      6.png
-│  │      7.png
-│  │      hack_car.png
-│  │      hack_car1.png
-│  │      hack_cat.png
-│  │      hack_cat1.png
-│  │      hack_dog.png
-│  │      hack_dog1.png
-│  │      hack_horse1.png
-│  │      hack_ji.png
-│  │      hack_ji1.png
-│  │      hack_mouse.png
-│  │      hack_niu.png
-│  │      me.jpg
-│  │      outfile.jpg
-│  │      raw_car1_gaitubao_299x299.png
-│  │      raw_ji1_gaitubao_299x299.png
-│  │      raw_mouse_gaitubao_299x299.png
-│  │      raw_niu_gaitubao_299x299.png
-│  │      raw_yang1_gaitubao_299x299.png
-│  │      raw_yang_gaitubao_299x299.png
-│  │
-│  ├─RNN_mnist_files
-│  │      724315-20170601201859321-1107873695.png
-│  │      724315-20170601203508868-924538983.png
-│  │      724315-20170601204246196-483587313.png
-│  │      724315-20170601205539508-2137510198.png
-│  │      724315-20170601210036852-889823895.png
-│  │      724315-20170601211213258-575415315.png
-│  │      724315-20170601212640446-1176255462.png
-│  │      724315-20170601212709571-1300974893.png
-│  │
-│  ├─trained_models
-│  │  │  inception_v3_on_imageNet.h5
-│  │  │
-│  │  ├─cnn_model
-│  │  │      checkpoint
-│  │  │      cnn_model.data-00000-of-00001
-│  │  │      cnn_model.index
-│  │  │      cnn_model.meta
-│  │  │
-│  │  ├─logistic_model
-│  │  │      checkpoint
-│  │  │      logistic_model.data-00000-of-00001
-│  │  │      logistic_model.index
-│  │  │      logistic_model.meta
-│  │  │
-│  │  ├─mlp_model
-│  │  │      checkpoint
-│  │  │      mlp_model.data-00000-of-00001
-│  │  │      mlp_model.index
-│  │  │      mlp_model.meta
-│  │  │
-│  │  └─rnn_mnist
-│  │          checkpoint
-│  │          rnn_mnist.data-00000-of-00001
-│  │          rnn_mnist.index
-│  │          rnn_mnist.meta
-│  │
-│  ├─一文读懂逻辑回归_files
-│  │      133003c4fda7293564c58eda27a178997225.gif
-│  │      2bf62e7fb74a74664fdeaa7c11f73d4d9121.gif
-│  │      2caf3c84ebb361da259d528394610e732929.gif
-│  │      516884747928241d8eb7305735df4f207759.gif
-│  │      72930a21f5261a97a6ca353f10e99d164235.gif
-│  │      a6dfe27b7130c97d5ede5c49d0f42f4e8968.gif
-│  │      cefc1e178a82b901a9220055e97239733b12efca.png
-│  │      dc8d80073cdc11e6c3d50230cabd8e132912.gif
-│  │      eef900f6c00a4709cf327e8c1a69e69e9870.gif
-│  │
-│  ├─卷积神经网络_files
-│  │      1093303-20170430194934006-705271151.jpg
-│  │      1093303-20170430194958725-2144325242.png
-│  │      dl_3_12.gif
-│  │      dl_3_2.png
-│  │      dl_3_3.png
-│  │
-│  └─多层感知机原理详解_files
-│          1344061-20180506113004354-1567433739.png
-│          1344061-20180506115221964-706278801.png
-│          1344061-20180506115759574-1741102562.png
-│          1344061-20180506120127501-1511095651.png
-│          1344061-20180506120148259-1417578443.png
-│          1344061-20180506135607686-2099406735.png
-│          1344061-20180506135904614-1978577361.png
-│          1344061-20180506141941680-222033696.png
-│          1344061-20180506142523100-1170537114.png
-│          1344061-20180506142622799-52134487.png
-│          1344061-20180506143107715-1509815281.png
-│          1344061-20180506144915295-1356542078.png
-│          1344061-20180506145331652-648310401.png
-│          1344061-20180506145907142-1890576603.png
-│          1344061-20180506150033153-929620142.png
-│          1344061-20180506215748184-1781405438.png
-│          1344061-20180506215949175-1649995757.png
-│          1344061-20180506220220946-1006147465.png
-│          1344061-20180506220940468-1322018533.png
-│          1344061-20180506221155312-308958368.png
-│          1344061-20180506221355005-1344929971.png
-│          1344061-20180506221507915-981441027.png
-│          1344061-20180506221817321-834760486.png
-│          1344061-20180506222031796-253516384.png
-│          1344061-20180506222612631-42874131.png
-│          1344061-20180506223132709-2146734601.png
-│          1344061-20180506223354991-1542257129.png
-│          1344061-20180506223506649-970551535.png
-│          1344061-20180506224131055-1333645892.png
-│          1344061-20180506224247085-772627268.png
-│          1344061-20180506224439916-2022391843.png
-│          1344061-20180506224925007-2087136473.png
-│          1344061-20180506230405317-28855176.png
-│          1344061-20180507090634774-283936583.png
-│
-└─Templates
-    │  00.html
-    │  1_index.html
-    │  addactor.html
-    │  addmovie.html
-    │  addrelation.html
-    │  con-brief.html
-    │  con_picture.html
-    │  con_pre.html
-    │  delactor.html
-    │  delmovie.html
-    │  index.html
-    │  index.zip
-    │  logistic_source_code.html
-    │  prediction.html
-    │  relations.html
-    │  RNN_mnist.html
-    │  RNN_mnist_source_code.html
-    │  search.html
-    │  showactors.html
-    │  showmovies.html
-    │  update-actor.html
-    │  update-movie.html
-    │  uploadpicture.html
-    │  uploadpicture1.html
-    │  xx.html
-    │  一文读懂逻辑回归.html
-    │  卷积神经网络.html
-    │  卷积神经网络源码.html
-    │  周星驰.html
-    │  多层感知机原理详解.html
-    │  情感分析-CNN.html
-    │  神经网络-感知机-source-code.html
-    │
-    └─index
-            1_index.html
-            jquery-1.12.2.js
-第一层包括MyDjangoProject、KG、static、Templates目录和manage.py、README.md、网站展示.docx 等文件。
-### 4.1 MyDjangoProject
-MyDjangoProject
-│  │  deepviews.py 深度学习的视图函数文件
-│  │  neo_db.py 知识图谱的数据库操作函数文件
-│  │  prediction_models.py 深度学习预测函数文件
-│  │  settings.py 网站配置文件
-│  │  spider.py  网络爬虫文件
-│  │  urls.py  路由文件
-│  │  views.py 知识图谱视图文件
-│  │  wsgi.py
-│  │  __init__.py
-│  │
-│  └─__pycache__
-### 4.2 MyKG
-没有使用
-### 4.3 static
-static
-│  ├─files 这是爬虫生成的导入数据库的标准文件，删除也没关系还会自动生成
-│  │      actors.csv 
-│  │      actors.txt
-│  │      movies.csv
-│  │      movies.json
-│  │      relations.csv
-│  │
-│  ├─img 这是网页的背景图和效果图
-│  │      03.jpg
-│  │      12.jpg
-│  │      backgroundimg00.jpg
-│  │      backgroundimg02.jpg
-│  │      con_brief01.png
-│  │      con_brief02.png
-│  │
-│  ├─js 这是js文件
-│  │      echarts.min.js
-│  │      jquery-1.12.2.js
-│  │
-│  ├─pictures 这是网页上传的预测图片
-│  │      0.png
-│  │      001.jpg
-│  │      003.jpg
-│  │      004.jpg
-│  │      010.jpg
-│  │      1.png
-│  │      10.png
-│  │      11.png
-│  │      13.png
-│  │      14.png
-│  │      17.png
-│  │      18.png
-│  │      19.png
-│  │      2.png
-│  │      23.png
-│  │      3.png
-│  │      3比4.jpg
-│  │      4.png
-│  │      5.png
-│  │      6.png
-│  │      7.png
-│  │      hack_car.png
-│  │      hack_car1.png
-│  │      hack_cat.png
-│  │      hack_cat1.png
-│  │      hack_dog.png
-│  │      hack_dog1.png
-│  │      hack_horse1.png
-│  │      hack_ji.png
-│  │      hack_ji1.png
-│  │      hack_mouse.png
-│  │      hack_niu.png
-│  │      me.jpg
-│  │      outfile.jpg
-│  │      raw_car1_gaitubao_299x299.png
-│  │      raw_ji1_gaitubao_299x299.png
-│  │      raw_mouse_gaitubao_299x299.png
-│  │      raw_niu_gaitubao_299x299.png
-│  │      raw_yang1_gaitubao_299x299.png
-│  │      raw_yang_gaitubao_299x299.png
-│  │
-│  ├─RNN_mnist_files 这是网页里面的图片
-│  │      724315-20170601201859321-1107873695.png
-│  │      724315-20170601203508868-924538983.png
-│  │      724315-20170601204246196-483587313.png
-│  │      724315-20170601205539508-2137510198.png
-│  │      724315-20170601210036852-889823895.png
-│  │      724315-20170601211213258-575415315.png
-│  │      724315-20170601212640446-1176255462.png
-│  │      724315-20170601212709571-1300974893.png
-│  │
-│  ├─trained_models 这是训练好的模型数据文件
-│  │  │  inception_v3_on_imageNet.h5
-│  │  │
-│  │  ├─cnn_model
-│  │  │      checkpoint
-│  │  │      cnn_model.data-00000-of-00001
-│  │  │      cnn_model.index
-│  │  │      cnn_model.meta
-│  │  │
-│  │  ├─logistic_model
-│  │  │      checkpoint
-│  │  │      logistic_model.data-00000-of-00001
-│  │  │      logistic_model.index
-│  │  │      logistic_model.meta
-│  │  │
-│  │  ├─mlp_model
-│  │  │      checkpoint
-│  │  │      mlp_model.data-00000-of-00001
-│  │  │      mlp_model.index
-│  │  │      mlp_model.meta
-│  │  │
-│  │  └─rnn_mnist
-│  │          checkpoint
-│  │          rnn_mnist.data-00000-of-00001
-│  │          rnn_mnist.index
-│  │          rnn_mnist.meta
-│  │
-│  ├─一文读懂逻辑回归_files
-│  │      133003c4fda7293564c58eda27a178997225.gif
-│  │      2bf62e7fb74a74664fdeaa7c11f73d4d9121.gif
-│  │      2caf3c84ebb361da259d528394610e732929.gif
-│  │      516884747928241d8eb7305735df4f207759.gif
-│  │      72930a21f5261a97a6ca353f10e99d164235.gif
-│  │      a6dfe27b7130c97d5ede5c49d0f42f4e8968.gif
-│  │      cefc1e178a82b901a9220055e97239733b12efca.png
-│  │      dc8d80073cdc11e6c3d50230cabd8e132912.gif
-│  │      eef900f6c00a4709cf327e8c1a69e69e9870.gif
-│  │
-│  ├─卷积神经网络_files
-│  │      1093303-20170430194934006-705271151.jpg
-│  │      1093303-20170430194958725-2144325242.png
-│  │      dl_3_12.gif
-│  │      dl_3_2.png
-│  │      dl_3_3.png
-│  │
-│  └─多层感知机原理详解_files
-│          1344061-20180506113004354-1567433739.png
-│          1344061-20180506115221964-706278801.png
-│          1344061-20180506115759574-1741102562.png
-│          1344061-20180506120127501-1511095651.png
-│          1344061-20180506120148259-1417578443.png
-│          1344061-20180506135607686-2099406735.png
-│          1344061-20180506135904614-1978577361.png
-│          1344061-20180506141941680-222033696.png
-│          1344061-20180506142523100-1170537114.png
-│          1344061-20180506142622799-52134487.png
-│          1344061-20180506143107715-1509815281.png
-│          1344061-20180506144915295-1356542078.png
-│          1344061-20180506145331652-648310401.png
-│          1344061-20180506145907142-1890576603.png
-│          1344061-20180506150033153-929620142.png
-│          1344061-20180506215748184-1781405438.png
-│          1344061-20180506215949175-1649995757.png
-│          1344061-20180506220220946-1006147465.png
-│          1344061-20180506220940468-1322018533.png
-│          1344061-20180506221155312-308958368.png
-│          1344061-20180506221355005-1344929971.png
-│          1344061-20180506221507915-981441027.png
-│          1344061-20180506221817321-834760486.png
-│          1344061-20180506222031796-253516384.png
-│          1344061-20180506222612631-42874131.png
-│          1344061-20180506223132709-2146734601.png
-│          1344061-20180506223354991-1542257129.png
-│          1344061-20180506223506649-970551535.png
-│          1344061-20180506224131055-1333645892.png
-│          1344061-20180506224247085-772627268.png
-│          1344061-20180506224439916-2022391843.png
-│          1344061-20180506224925007-2087136473.png
-│          1344061-20180506230405317-28855176.png
-│          1344061-20180507090634774-283936583.png
-### 4.4 Templates
-Templates 这里面都是每个网页的html文件
-    │  00.html
-    │  1_index.html
-    │  addactor.html
-    │  addmovie.html
-    │  addrelation.html
-    │  con-brief.html
-    │  con_picture.html
-    │  con_pre.html
-    │  delactor.html
-    │  delmovie.html
-    │  index.html
-    │  index.zip
-    │  logistic_source_code.html
-    │  prediction.html
-    │  relations.html
-    │  RNN_mnist.html
-    │  RNN_mnist_source_code.html
-    │  search.html
-    │  showactors.html
-    │  showmovies.html
-    │  update-actor.html
-    │  update-movie.html
-    │  uploadpicture.html
-    │  uploadpicture1.html
-    │  xx.html
-    │  一文读懂逻辑回归.html
-    │  卷积神经网络.html
-    │  卷积神经网络源码.html
-    │  周星驰.html
-    │  多层感知机原理详解.html
-    │  情感分析-CNN.html
-    │  神经网络-感知机-source-code.html
+>>MyKG
+>>static
+>>Templates
 
-    ## 五、以下是测试内容
+	第一层包括MyDjangoProject、KG、static、Templates目录和manage.py、README.md、网站展示.docx 等文件。
+
+### 4.1 MyDjangoProject
+>MyDjangoProject
+>>deepviews.py 深度学习的视图函数文件
+>>neo_db.py 知识图谱的数据库操作函数文件
+>>prediction_models.py 深度学习预测函数文件
+>>settings.py 网站配置文件
+>>spider.py  网络爬虫文件
+>>urls.py  路由文件
+>>views.py 知识图谱视图文件
+>>wsgi.py
+>>__init__.py
+>>__pycache__
+### 4.2 MyKG
+
+	没有使用
+	
+### 4.3 static
+>static
+>>files 这是爬虫生成的导入数据库的标准文件，删除也没关系还会自动生成
+>>>actors.csv 
+>>>actors.txt
+>>>movies.csv
+>>>movies.json
+>>>relations.csv
+>>img 这是网页的背景图和效果图
+>>>03.jpg
+>>>12.jpg
+>>>backgroundimg00.jpg
+>>>backgroundimg02.jpg
+>>>con_brief01.png
+>>>con_brief02.png
+>>js 这是js文件
+>>>echarts.min.js
+>>>jquery-1.12.2.js
+>>pictures 这是网页上传的预测图片
+>>>0.png
+>>>001.jpg
+>>>003.jpg
+>>>004.jpg
+>>>010.jpg
+>>>1.png
+>>>hack_car.png
+>>>hack_car1.png
+>>>raw_car1_gaitubao_299x299.png
+>>RNN_mnist_files 这是网页里面的图片
+>>>724315-20170601201859321-1107873695.png
+>>>724315-20170601203508868-924538983.png
+>>trained_models 这是训练好的模型数据文件
+>>>inception_v3_on_imageNet.h5
+>>>cnn_model
+>>>>checkpoint
+>>>>cnn_model.data-00000-of-00001
+>>>>cnn_model.index
+>>>>cnn_model.meta
+>>>logistic_model
+>>>>checkpoint
+>>>>logistic_model.data-00000-of-00001
+>>>>logistic_model.index
+>>>>logistic_model.meta
+>>>mlp_model
+>>>>checkpoint
+>>>>mlp_model.data-00000-of-00001
+>>>>mlp_model.index
+>>>>mlp_model.meta
+>>>rnn_mnist
+>>>>checkpoint
+>>>>rnn_mnist.data-00000-of-00001
+>>>>rnn_mnist.index
+>>>>rnn_mnist.meta
+>>一文读懂逻辑回归_files
+>>>133003c4fda7293564c58eda27a178997225.gif
+>>>2bf62e7fb74a74664fdeaa7c11f73d4d9121.gif
+>>>2caf3c84ebb361da259d528394610e732929.gif
+>>>516884747928241d8eb7305735df4f207759.gif
+>>卷积神经网络_files
+>>>1093303-20170430194934006-705271151.jpg
+>>>1093303-20170430194958725-2144325242.png
+>>>dl_3_12.gif
+>>>dl_3_2.png
+>>>dl_3_3.png
+>>多层感知机原理详解_files
+>>>1344061-20180506113004354-1567433739.png
+>>>1344061-20180506115221964-706278801.png
+>>>1344061-20180506115759574-1741102562.png
+>>>1344061-20180506120127501-1511095651.png
+>>>1344061-20180506120148259-1417578443.png
+
+### 4.4 Templates
+>Templates 这里面都是每个网页的html文件
+>>00.html
+>>1_index.html
+>>addactor.html
+>>addmovie.html
+>>addrelation.html
+>>con-brief.html
+>>con_picture.html
+>>con_pre.html
+>>delactor.html
+>>delmovie.html
+>>一文读懂逻辑回归.html
+>>卷积神经网络.html
+>>卷积神经网络源码.html
+>>多层感知机原理详解.html
+>>情感分析-CNN.html
+>>神经网络-感知机-source-code.html
+
+## 五、以下是测试内容
     first test
