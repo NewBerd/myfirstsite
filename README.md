@@ -317,17 +317,29 @@
 	第一层包括MyDjangoProject、KG、static、Templates目录和manage.py、README.md、网站展示.docx 等文件。
 
 ### 4.1 MyDjangoProject
->MyDjangoProject
->>deepviews.py 深度学习的视图函数文件
->>neo_db.py 知识图谱的数据库操作函数文件
->>prediction_models.py 深度学习预测函数文件
->>settings.py 网站配置文件
->>spider.py  网络爬虫文件
->>urls.py  路由文件
->>views.py 知识图谱视图文件
->>wsgi.py
->>__init__.py
->>__pycache__
+
+MyDjangoProject
+
+> deepviews.py 深度学习的视图函数文件
+>
+> neo_db.py 知识图谱的数据库操作函数文件
+>
+> prediction_models.py 深度学习预测函数文件
+>
+> settings.py 网站配置文件
+>
+> spider.py  网络爬虫文件
+>
+> urls.py  路由文件
+>
+> views.py 知识图谱视图文件
+>
+> wsgi.py
+>
+> __init__.py
+>
+> pycache
+
 ### 4.2 MyKG
 
 	没有使用
