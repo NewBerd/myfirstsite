@@ -389,7 +389,7 @@ MyDjangoProject
             1_index.html
             jquery-1.12.2.js
 第一层包括MyDjangoProject、KG、static、Templates目录和manage.py、README.md、网站展示.docx 等文件。
-### 1 MyDjangoProject
+### 4.1 MyDjangoProject
 MyDjangoProject
 │  │  deepviews.py 深度学习的视图函数文件
 │  │  neo_db.py 知识图谱的数据库操作函数文件
@@ -402,9 +402,9 @@ MyDjangoProject
 │  │  __init__.py
 │  │
 │  └─__pycache__
-### 2 MyKG
+### 4.2 MyKG
 没有使用
-### 3 static
+### 4.3 static
 static
 │  ├─files 这是爬虫生成的导入数据库的标准文件，删除也没关系还会自动生成
 │  │      actors.csv 
@@ -557,7 +557,7 @@ static
 │          1344061-20180506224925007-2087136473.png
 │          1344061-20180506230405317-28855176.png
 │          1344061-20180507090634774-283936583.png
-### 4 Templates
+### 4.4 Templates
 Templates 这里面都是每个网页的html文件
     │  00.html
     │  1_index.html
