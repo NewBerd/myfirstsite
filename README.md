@@ -284,7 +284,7 @@
 
 本项目使用的数据库为图数据库Neo4j，它也有企业版和社区版之分，企业版收费，社区版缺少一些功能，但免费，对于学生来说够用了。
 
-Neo4j是基于java开发的，所以首先需要安装一个java，并且需要是java1.8.xx版本。Linux系统中已经自带了，你可以直接运行命令java -version查看你的java版本是否符合要求，不符合要求的要进行更新或者重装。
+Neo4j是基于java开发的，所以首先需要安装一个java，并且需要是**java 1.8.xx**版本。Linux系统中已经自带了，你可以直接运行命令`java -version`查看你的java版本是否符合要求，不符合要求的要进行更新或者重装。
 
 然后安装neo4j：首先去[官网](https://neo4j.com/download-thanks/?edition=community&release=3.3.9&flavour=unix#)下载社区版的neo4j，它分为windows,mac,linux版本，下载自己需要的（后面的讲解以linux为例）。然后解压`tar -xf neo4j-community-3.3.9-unix.tar.gz`，首先找到conf文件夹，打开neo4j.conf文件，找到`dbms.directories.import=import`将其注释掉，然后找到`dbms.connectors.default_listen_address=0.0.0.0`将其取消注释并改为你**服务器的地址**，然后找到`#dbms.connector.bolt.listen_address=:7687`与`#dbms.connector.http.listen_address=:7474`，取消注释。然后退回父目录，你将看到bin文件夹，不要进入（再说一遍不要进入），直接在命令行中输入`bin/neo4j console`初始化服务，按照提示的网址打开浏览器，使用http协议登陆，端口号为7474，设置用户名为neo4j，密码为neo4j，然后按照提示修改密码为123456。以后在运行本项目的时候要输入`bin/neo4j strat`，关闭服务使用`bin/neo4j stop`, 查看状态使用`bin/neo4j status`， 重启使用`bin/neo4j restart`。
 
@@ -294,9 +294,9 @@ linux下的keras有一个bug，那就是它找不到imagenet_class_index.json �
 	
 ### 2.2 使用本项目
 
-当上面的软件都正确安装完成后，进入项目目录中，首先你需要修改几个配置项。首先进入MyDjangoProject/MyDjangoProject 中，打开settings.py文件，找到`ALLOWED_HOSTS = []`，将你的服务器地址添加进去，或者你可以直接添加"*" ，这样所有的地址都可以访问不过不建议这么做。然后打开views.py文件，修改`host = '127.0.0.1'`，`port = '127.0.0.1:8000'` 为*自己的服务器地址*。
+当上面的软件都正确安装完成后，进入项目目录中，首先你需要修改几个配置项。首先进入MyDjangoProject/MyDjangoProject 中，打开settings.py文件，找到`ALLOWED_HOSTS = []`，将你的服务器地址添加进去，或者你可以直接添加"\*" ，这样所有的地址都可以访问不过不建议这么做。然后打开views.py文件，修改`host = '127.0.0.1'`，`port = '127.0.0.1:8000'` 为**自己的服务器地址**。
 	
-然后回到上级目录，你可以看到manage.py文件，运行命令`python manage.py runserver` '你的服务器地址:8000' ，然后在浏览器中输入网站主页地址：你的服务器地址:8000/FTQ/，你就可以看到我的网站了。然后你就可以使用了。
+然后回到上级目录，你可以看到manage.py文件，运行命令`python manage.py runserver` '你的服务器地址:8000' ，然后在浏览器中输入网站主页地址：*你的服务器地址*:8000/FTQ/，你就可以看到我的网站了。然后你就可以使用了。
 	
 ## 三、效果展示
 
