@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>足球时间知识图谱问答</title>
+
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css" title="">
+         * {
+            box-sizing: border-box;
+        }
+
+        div.search {padding: 30px 0;}
+
+        form {
+            position: relative;
+            width: 500px;
+            margin: 100 auto;
+        }
+
+        input, button {
+            border: none;
+            outline: none;
+        }
+
+        input {
+            width: 100%;
+            height: 80px;
+            padding-left: 13px;
+        }
+
+        button {
+            height: 80px;
+            width: 80px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+
+        /*搜索框2*/
+        .bar2 input, .bar2 button {
+            border-radius: 3px;
+        }
+        .bar2 input {
+            background: #F9F0DA;
+            font-size: 25px;
+        }
+        .bar2 button {
+            height: 50px;
+            width: 50px;
+            top: 15px;
+            right: 15px;
+            background: #4682B4;
+        }
+        .bar2 button:before {
+            content: "\f105";
+            font-family: FontAwesome;
+            color: #F9F0DA;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body style="background: url(/static/img/bgimg01.jpg);background-size: 100%;">
+
+    <div class="search bar2">
+        <form action="../get-answer" method="get">
+            <input type="text" placeholder="请输入您的问题..." name="question" id=" " value="">
+            <button type="submit"></button>
+        </form>
+    </div>
+
+</body>
+</html>
