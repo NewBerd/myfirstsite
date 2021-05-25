@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views, deepviews
+from . import views, deepviews, stkgviews
+#from . import views, deepviews, mlviews
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('FTQ/', views.index),
@@ -54,11 +56,25 @@ urlpatterns = [
     path("FTQ/search-actorbyachievement/", views.search_actorbyachievement),
     path("FTQ/search-moviebyscore/", views.search_moviebyscore),
 
-    
+    path("stkg/kbqa/", stkgviews.kbqa),
+    path("stkg/get-answer/", stkgviews.getAnswer),
+
+    #sklearn-韩跃
+#     path("sklearn/overfitting/", mlviews.show_overfitting),
+#     path("sklearn/cross-validation/", mlviews.show_cross_validation),
+#     path("sklearn/svm-models/", mlviews.svm_models_show),
+#     path("sklearn/crawler-weather/", mlviews.weather_crawler),
+#     path("sklearn/wea-data-analysis/", mlviews.weather_analysize),
+#     path("sklearn/wea-data-search/", mlviews.get_city),
+#     path("sklearn/show-city-weather/", mlviews.show_weather),
+#     path("sklearn/cluster/", mlviews.cluster),
+#     path("sklearn/cut-word-arg/", mlviews.cut_word_arg),
+#     path("sklearn/cut-word/", mlviews.cut_word),
+#     path("sklearn/info-extract-arg/", mlviews.info_extract_arg),
+#     path("sklearn/info-extract/", mlviews.info_extract),
 
 
 
-    
     #deeplearning
     path("deeplearning/logistic/", deepviews.show_logistic),
     path("deeplearning/logistic/source-code/", deepviews.logistic_source_code),
@@ -85,5 +101,12 @@ urlpatterns = [
     path("deeplearning/con/uploadpicture/", deepviews.uploadpicture),
     path("deeplearning/con/prepicture/", deepviews.con_pre),
     path("deeplearning/con/genpicture/", deepviews.con_gen),
+
+    #英文文本生成
+    path("deeplearning/gen-text/brief/", deepviews.gen_text_brief),
+    path("deeplearning/gen-text/source-code/", deepviews.gen_text_source_code),
+    path("deeplearning/gen-text/generation/", deepviews.get_text),
+    path("deeplearning/gen-text/generate-text/", deepviews.generate_text),
+    # path("deeplearning/brief/", deepviews.con_brief),
 
 ]
